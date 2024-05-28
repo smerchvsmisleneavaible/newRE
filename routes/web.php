@@ -35,3 +35,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/admin-panel', [AuthController::class, 'admin_index'])->name('admin-panel');
 });
+
+Route::group(['middleware' => ['verified']], function() {
+    Route::get('/admin-panel/characters', [\App\Http\Controllers\Admin\CharacterController::class, 'index'])->name('chars');
+    Route::get('/admin-panel', [AuthController::class, 'admin_index'])->name('admin-panel');
+});
