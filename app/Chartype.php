@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rank extends Model
+class Chartype extends Model
 {
-    protected $table = 'ranks';
+    protected $table = 'chartypes';
     protected $fillable = [
-        'ranktype',
+        'typename', 'typeimg',
     ];
+
     public function characters(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Character::class);

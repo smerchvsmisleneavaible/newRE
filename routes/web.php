@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CharacterAdController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\MusicController;
@@ -31,12 +32,19 @@ Route::get('/music-page', [MusicController::class, 'show']);
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login-post', [AuthController::class, 'customLogin'])->name('login');
 
-Route::group(['middleware' => ['auth', 'verified']], function() {
+Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin-panel'], function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/admin-panel', [AuthController::class, 'admin_index'])->name('admin-panel');
-});
+    Route::get('/main', [AuthController::class, 'admin'])->name('admin');
+    Route::get('/characters', [CharacterAdController::class, 'index'])->name('chars');
+    Route::get('/characters/{id}', [CharacterAdController::class, 'show'])->name('char');
+    Route::post('/characters/{id}', [CharacterAdController::class, 'update'])->name('char-update');
 
-Route::group(['middleware' => ['verified']], function() {
-    Route::get('/admin-panel/characters', [\App\Http\Controllers\Admin\CharacterController::class, 'index'])->name('chars');
-    Route::get('/admin-panel', [AuthController::class, 'admin_index'])->name('admin-panel');
+
+    Route::group(['middleware' => ['verified']], function ()
+    {
+        Route::get('/create', [CharacterAdController::class, 'create'])->name('add');
+        Route::post('/create/add', [CharacterAdController::class, 'store'])->name('add-char');
+        Route::delete('/delete-char/{id}', [CharacterAdController::class, 'destroy'])->name('char-delete');
+    });
+
 });

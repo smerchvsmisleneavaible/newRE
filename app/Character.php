@@ -9,7 +9,7 @@ class Character extends Model
     protected $table = 'characters';
     protected $fillable = [
         'charname', 'charimage', 'chardesc',
-        'charclass', 'charrank', 'chartype', 'stigset_id', 'weap_id',
+        'charclass', 'charrank', 'dmgtype', 'stigset', 'weap', 'chartype'
     ];
     public function stigmatasets(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
@@ -30,5 +30,10 @@ class Character extends Model
     public function weapons(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Weapon::class);
+    }
+
+    public function chartypes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Chartype::class);
     }
 }

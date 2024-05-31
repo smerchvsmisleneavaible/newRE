@@ -23,7 +23,8 @@ class AuthController extends Controller
     {
         $fields = $request->only(['email', 'password']);
         if (Auth::attempt($fields)) {
-            return redirect('admin-panel');
+            return view('admin/main')
+                ->with('Вуху');
         }
         return back()->withErrors([
             'email' => 'Что-то неправильно'
@@ -33,12 +34,10 @@ class AuthController extends Controller
     public function logout()
     {
         Session::flush();
-
         Auth::logout();
-
         return redirect('login');
     }
-    public function admin_index()
+    public function admin()
     {
         return view('admin/main');
     }

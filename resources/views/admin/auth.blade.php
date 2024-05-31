@@ -4,6 +4,10 @@
     </x-slot>
 
     <div>
+        @auth("web")
+            <h4>Вы уже авторизованы!</h4>
+        @endauth
+        @guest("web")
         <form action="{{ route('login') }}" method="post" >
             @csrf
             <input type="text" placeholder="Введите логин" title="Логин" id="email" name="email">
@@ -16,5 +20,6 @@
             @endif
             <button type="submit">Войти</button>
         </form>
+        @endguest
     </div>
 </x-admin-layout>
