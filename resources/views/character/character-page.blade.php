@@ -7,7 +7,7 @@
         <div class="d-flex border-bottom">
             <div style="width: 250px">
                 <h4>Ранг Валькирии</h4>
-                <h4 class="text-dark p-2" style="background: #8477A4">{{$rankchara->rank}}</h4>
+                <h4 class="text-dark p-2" style="background: #8477A4">{{$rankchara->ranktype}}</h4>
 
                 <h4>Тип урона</h4>
                 <h4 class="text-dark p-2" style="background: #8477A4">{{$dmg->typedmg}}</h4>

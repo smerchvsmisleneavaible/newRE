@@ -22,11 +22,11 @@ class CharacterController extends Controller
     {
         //Получаем данные из БД
         $chara = Character::get()->find($id);
-        $stigset = Stigmataset::where('id', $chara['stigset_id'])->first();
+        $stigset = Stigmataset::where('id', $chara['stigset'])->first();
         $rankchara = Rank::where('id', $chara['charrank'])->first();
-        $dmgtype = Damagetype::where('id', $chara['chartype'])->first();
+        $dmgtype = Damagetype::where('id', $chara['dmgtype'])->first();
         $classtype = Classchar::where('id', $chara['charclass'])->first();
-        $weap = Weapon::where('id', $chara['weap_id'])->first();
+        $weap = Weapon::where('id', $chara['weap'])->first();
         //Возвращаем "вид" с этими данными
         return view('character/character-page')->with('chara', $chara)->with('stigset', $stigset)->with('rankchara', $rankchara)->
         with('dmg', $dmgtype)->with('classtype', $classtype)->with('weap', $weap);
