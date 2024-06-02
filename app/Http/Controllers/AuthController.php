@@ -21,13 +21,13 @@ class AuthController extends Controller
 
     public function customLogin(Request $request)
     {
-        $fields = $request->only(['email', 'password']);
+        $fields = $request->only(['login', 'password']);
         if (Auth::attempt($fields)) {
             return view('admin/main')
                 ->with('Вуху');
         }
         return back()->withErrors([
-            'email' => 'Что-то неправильно'
+            'login' => 'Что-то неправильно'
         ]);
     }
 

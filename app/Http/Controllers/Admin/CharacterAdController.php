@@ -56,7 +56,6 @@ class CharacterAdController extends Controller
      */
     public function store(Request $request)
     {
-
         $char = new Character();
         $char->charname = $request->input('charname');
         $char->charimage = $request->input('charimage');
@@ -67,9 +66,7 @@ class CharacterAdController extends Controller
         $char->stigset = $request->input('set');
         $char->weap = $request->input('weap');
         $char->chartype = $request->input('type');
-
         $char->save();
-
         return redirect()->route('chars');
     }
 
@@ -109,27 +106,17 @@ class CharacterAdController extends Controller
     public function update(Request $request, $id)
     {
         $charas = Character::find($id);
-
         $charas->charname = $request->get('charname');
         $charas->charimage = $request->get('charimage');
         $charas->chardesc = $request->get('chardesc');
-
         $charas->dmgtype = $request->get('dmg');
-
         $charas->charrank = $request->get('rank');
-
         $charas->stigset = $request->get('set');
-
         $charas->weap = $request->get('weap');
-
         $charas->chartype = $request->get('type');
-
         $charas->charclass = $request->get('class');
-
         $charas->save();
-
         $charas->push($request->all());
-
         return redirect()->route('chars');
     }
 

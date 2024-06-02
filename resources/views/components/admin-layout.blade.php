@@ -19,7 +19,7 @@
                 <div class="navbar-brand">
                     <img src="public/upload/files/images/logo.png" alt="" style="width: 75%">
                 </div>
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="/admin-panel/main" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">АДМИН-ПАНЕЛЬ</span>
                 </a>
                 @auth("web")
@@ -34,21 +34,17 @@
                         <a href="{{ route("chars") }}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-person-square"></i> <span class="ms-1 d-none d-sm-inline">Персонажи</span></a>
                     </li>
-
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="{{route('musics')}}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-music-note"></i> <span class="ms-1 d-none d-sm-inline">Музыка</span> </a>
                     </li>
                 </ul>
-
                 <hr>
                     <a href="{{ route("logout") }}" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-box-arrow-down-left"></i> <span class="ms-1 d-none d-sm-inline">Выйти</span> </a>
                 @endauth
             </div>
         </div>
-
-
 {{ $slot }}
 </div>
 <script src="{{ asset('js/app.js') }}"></script>

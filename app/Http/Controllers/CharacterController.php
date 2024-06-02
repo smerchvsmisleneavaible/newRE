@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Character;
+use App\Chartype;
 use App\Classchar;
 use App\Damagetype;
 use App\Rank;
@@ -25,10 +26,11 @@ class CharacterController extends Controller
         $stigset = Stigmataset::where('id', $chara['stigset'])->first();
         $rankchara = Rank::where('id', $chara['charrank'])->first();
         $dmgtype = Damagetype::where('id', $chara['dmgtype'])->first();
+        $chartype = Chartype::where('id', $chara['chartype'])->first();
         $classtype = Classchar::where('id', $chara['charclass'])->first();
         $weap = Weapon::where('id', $chara['weap'])->first();
         //Возвращаем "вид" с этими данными
         return view('character/character-page')->with('chara', $chara)->with('stigset', $stigset)->with('rankchara', $rankchara)->
-        with('dmg', $dmgtype)->with('classtype', $classtype)->with('weap', $weap);
+        with('dmg', $dmgtype)->with('classtype', $classtype)->with('weap', $weap)->with('type', $chartype);
     }
 }

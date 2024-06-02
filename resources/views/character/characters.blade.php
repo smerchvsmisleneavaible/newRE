@@ -11,7 +11,7 @@
                         <h4>{{$chara['charname']}}</h4>
                         <h5>{{$chara['chardesc']}}</h5>
                         <a href="/character-page/{{$chara['id']}}">
-                            <button type="submit">Подробнее</button>
+                            <button class="char-button" type="submit">Подробнее</button>
                         </a>
                     </div>
                 </div>

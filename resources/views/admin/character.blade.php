@@ -7,13 +7,10 @@
             @csrf
             <label>Имя персонажа</label>
             <input value="{{$chara['charname']}}" id="charname" name="charname" />
-
             <label>Ссылка на изображение персонажа</label>
             <input value="{{$chara['charimage']}}" id="charimage" name="charimage" />
-
             <label>Описание персонажа</label>
             <input value="{{$chara['chardesc']}}" id="chardesc" name="chardesc" />
-
             <label>Класс персонажа</label>
             <select class="form-control" name="class" id="class">
                 <option>Выберите класс</option>
@@ -23,7 +20,6 @@
                     </option>
                 @endforeach
             </select>
-
             <label>Ранг персонажа</label>
             <select class="form-control" name="rank" id="rank">
                 <option>Выберите ранг</option>
@@ -33,7 +29,6 @@
                     </option>
                 @endforeach
             </select>
-
             <label>Тип урона персонажа</label>
             <select class="form-control" name="dmg" id="dmg">
                 <option>Выберите тип урона</option>
@@ -43,7 +38,6 @@
                     </option>
                 @endforeach
             </select>
-
             <label>Сет стигм для персонажа</label>
             <select class="form-control" name="set" id="set">
                 <option>Выберите сет</option>
@@ -53,7 +47,6 @@
                     </option>
                 @endforeach
             </select>
-
             <label>Оружие персонажа</label>
             <select class="form-control" name="weap" id="weap">
                 <option>Выберите оружие</option>
@@ -63,7 +56,6 @@
                     </option>
                 @endforeach
             </select>
-
             <label>Тип персонажа</label>
             <select class="form-control" name="type" id="type">
                 <option>Выберите тип персонажа</option>
@@ -73,7 +65,6 @@
                     </option>
                 @endforeach
             </select>
-
             <div class="mt-lg-5 mt-sm-2 btn-group-lg">
                 <button class="mr-lg-5 mr-sm-2 btn-dark rounded btn-lg" type="submit">Сохранить изменения</button>
             <button class="mr-lg-5 mr-sm-2 btn-dark btn-outline-danger rounded btn-lg" type="submit">Удалить персонажа</button>

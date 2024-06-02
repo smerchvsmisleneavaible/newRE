@@ -7,16 +7,16 @@
             @foreach($charas as $chara)
                 <div style="height: 250px; background-color: #8477A4" class="d-flex m-2 p-2 rounded">
                     <img class="img-fluid rounded mr-2" src="{{$chara['charimage']}}" alt="character card image">
-                    <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column container-fluid justify-content-center">
                         <h4>{{$chara['charname']}}</h4>
                         <h5>{{$chara['chardesc']}}</h5>
                         <a href="{{ route("char", $chara['id']) }}">
-                            <button type="submit">Редактировать</button>
+                            <button class="char-button mb-lg-4 mb-sm-2 w-25" type="submit">Редактировать</button>
                         </a>
                         <form method="post" action="{{ route("char-delete", $chara->id) }}">
                             @method('delete')
                             @csrf
-                            <button type="submit">Удалить</button>
+                            <button class="char-button w-25" type="submit">Удалить</button>
                         </form>
 
                     </div>

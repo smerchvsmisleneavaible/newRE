@@ -54,17 +54,14 @@ a {
 
 .shows div {
     display: none;
-    width: 100px;
-    height: 100px;
+    width: 100vh;
+    height: 100vh;
     float: left;
 }
 
 
 
 
-/*
-    DEMO STYLE
-*/
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
@@ -217,15 +214,38 @@ a.article:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .no-flex{
+        display: flex !important;
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .w-media {
+        width: 100% !important;
+    }
+}
+
 .add-button {
     background-color : #9678ce;
     color: white;
     padding: 10px 20px;
     border-radius: 4px;
-    border-color: #7721c9;
+    border-color: transparent;
 }
 .mybutton {
     position: fixed;
     bottom: 20px;
     right: 40px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.char-button{
+    background-color : transparent;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    border-color: #4b4b4b;
 }
